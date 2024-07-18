@@ -12,5 +12,4 @@ class Category extends Model
     use SoftDeletes;
     public $table = 'category';
     public $guarded = [];
-    uil
 }
