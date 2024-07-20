@@ -26,9 +26,6 @@
                     <li class="nav-item active">
                         <a class="nav-link" href="{{ asset('index.html') }}">Home <span class="sr-only">(current)</span></a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ asset('about.html') }}">About</a>
-                    </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="{{ asset('#') }}" id="blogDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Blog</a>
                         <div class="dropdown-menu" aria-labelledby="blogDropdown">
@@ -44,7 +41,10 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ asset('contact.html') }}">Contact</a>
+                        <a class="nav-link" href="{{ route('category.index') }}">Categories</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('tag.index') }}">Tags</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav mt-2 mt-lg-0">
