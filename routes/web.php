@@ -17,6 +17,14 @@ Route::group(['namespace' => 'Post'], function() {
     Route::get('/posts', 'IndexController');
 });
 
+Route::group(['namespace' => 'Category'], function() {
+    Route::get('/categories', 'IndexController')->name('category.index');
+    Route::get('/categories/create', 'CreateController')->name('category.create');
+    Route::post('/categories', 'StoreController')->name('category.store');
+    Route::get('/categories/{category}/edit', 'EditController')->name('category.edit');
+    Route::patch('/categories/{category}', 'UpdateController')->name('category.update');
+});
+
 
 //Auth::routes();
 
