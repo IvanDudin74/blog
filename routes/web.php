@@ -23,6 +23,7 @@ Route::group(['namespace' => 'Category'], function() {
     Route::post('/categories', 'StoreController')->name('category.store');
     Route::get('/categories/{category}/edit', 'EditController')->name('category.edit');
     Route::patch('/categories/{category}', 'UpdateController')->name('category.update');
+    Route::delete('/categories/{category}', 'DestroyController')->name('category.destroy');
 });
 
 
