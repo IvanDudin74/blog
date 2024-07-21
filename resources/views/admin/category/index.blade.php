@@ -16,7 +16,7 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>Title</th>
-                                    <th>Actions</th>
+                                    <th colspan="3">Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -24,7 +24,15 @@
                                     <tr>
                                         <td>{{ $category->id }}</td>
                                         <td>{{ $category->title }}</td>
-                                        <td><a href="{{ route('admin.category.show', $category->id) }}"><i class="nav-icon far fa-solid fa-magnifying-glass"></i></a></td>
+                                        <td><a href="{{ route('admin.category.show', $category->id) }}">Show</a></td>
+                                        <td><a href="{{ route('admin.category.edit', $category->id) }}">Edit</a></td>
+                                        <td>
+                                            <form class="mb-3" action="{{ route('admin.category.destroy', $category->id) }}" method="post">
+                                                @csrf
+                                                @method('delete')
+                                                <button type="submit" class="btn btn-primary">Delete</button>
+                                            </form>
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>
