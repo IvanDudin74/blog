@@ -7,7 +7,7 @@
                 <a class="btn btn-primary" href="{{ route('admin.category.create') }}">Create new category</a>
             </div>
 
-            <div class="col-4">
+            <div class="col-7">
                 <div class="card">
                     <!-- /.card-header -->
                     <div class="card-body table-responsive p-0">
@@ -16,13 +16,15 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>Title</th>
+                                    <th>Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach($categories as $category)
                                     <tr>
-                                        <td><a href="{{ route('admin.category.edit', $category->id) }}">{{ $category->id }}</a></td>
-                                        <td><a href="{{ route('admin.category.edit', $category->id) }}">{{ $category->title }}</a></td>
+                                        <td>{{ $category->id }}</td>
+                                        <td>{{ $category->title }}</td>
+                                        <td><a href="{{ route('admin.category.show', $category->id) }}"><i class="nav-icon far fa-solid fa-magnifying-glass"></i></a></td>
                                     </tr>
                                 @endforeach
                             </tbody>

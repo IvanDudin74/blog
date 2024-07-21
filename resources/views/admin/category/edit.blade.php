@@ -10,10 +10,5 @@
             </div>
             <button type="submit" class="btn btn-primary">Update</button>
         </form>
-        <form class="mb-3" action="{{ route('admin.category.destroy', $category->id) }}" method="post">
-            @csrf
-            @method('delete')
-            <button type="submit" class="btn btn-primary">Delete</button>
-        </form>
     </div>
 @endsection
