@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Tag;
+namespace App\Http\Controllers\Admin\Tag;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Tag\StoreRequest;
@@ -11,6 +11,6 @@ class StoreController extends Controller
     public function __invoke(StoreRequest $request) {
         $data = $request->validated();
         Tag::create($data);
-        return redirect()->route('tag.index');
+        return redirect()->route('admin.tag.index');
     }
 }
