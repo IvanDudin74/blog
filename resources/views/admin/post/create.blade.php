@@ -60,7 +60,7 @@
                 <label>Tags</label>
                 <select class="select2" name="tags[]" multiple="multiple" data-placeholder="Select tags" style="width: 100%;">
                     @foreach($tags as $tag)
-                        <option {{  }} value="{{ $tag->id }}">
+                        <option value="{{ $tag->id }}">
                             {{ $tag->title }}
                         </option>
                     @endforeach
