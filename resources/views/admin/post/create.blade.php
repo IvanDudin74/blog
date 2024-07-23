@@ -57,6 +57,16 @@
                 </select>
             </div>
             <div class="form-group">
+                <label>Tags</label>
+                <select class="select2" name="tags[]" multiple="multiple" data-placeholder="Select tags" style="width: 100%;">
+                    @foreach($tags as $tag)
+                        <option {{  }} value="{{ $tag->id }}">
+                            {{ $tag->title }}
+                        </option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="form-group">
                 <button type="submit" class="btn btn-primary">Create post</button>
             </div>
         </form>
