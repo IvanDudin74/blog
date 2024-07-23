@@ -41,10 +41,10 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('category.index') }}">Categories</a>
+                        <a class="nav-link" href="{{ route('admin.category.index') }}">Categories</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('tag.index') }}">Tags</a>
+                        <a class="nav-link" href="{{ route('admin.tag.index') }}">Tags</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav mt-2 mt-lg-0">
