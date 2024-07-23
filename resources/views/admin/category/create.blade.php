@@ -1,16 +1,16 @@
 @extends('admin.layouts.main')
 @section('content')
     <div class="container">
-        <form class="w-25" action="{{ route('admin.category.store') }}" method="post">
+        <h1>New category:</h1>
+        <form action="{{ route('admin.category.store') }}" method="post">
             @csrf
-            <div>
-                <label for="title" class="form-label">New category</label>
-                <input type="text" class="form-control mb-3" id="title" name="title" placeholder="Enter category">
+            <div class="w-25 mb-3">
+                <input type="text" class="form-control" id="title" name="title" placeholder="Enter category">
                 @error('title')
-                <div class="danger">{{ $message }}</div>
+                    <div class="text-danger">{{ $message }}</div>
                 @enderror
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">Create</button>
         </form>
     </div>
 @endsection

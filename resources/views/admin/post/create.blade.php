@@ -1,16 +1,27 @@
 @extends('admin.layouts.main')
 @section('content')
     <div class="container">
-        <form class="w-25" action="{{ route('admin.post.store') }}" method="post">
+        <h1>New post:</h1>
+        <form action="{{ route('admin.post.store') }}" method="post">
             @csrf
-            <div>
-                <label for="title" class="form-label">New post</label>
-                <input type="text" class="form-control mb-3" id="title" name="title" placeholder="Enter post">
+            <div class="w-25 mb-3">
+                <input type="text" class="form-control" id="title" name="title" value="{{ old('title') }}" placeholder="Enter title">
                 @error('title')
-                    <div class="danger">{{ $message }}</div>
+                    <div class="text-danger">{{ $message }}</div>
                 @enderror
             </div>
-            <button type="submit" class="btn btn-primary">Create post</button>
+
+            <div class="form-group mb-3">
+                <textarea id="summernote" name="content">{{ old('content') }}</textarea>
+                @error('content')
+                    <div class="text-danger">{{ $message }}</div>
+                @enderror
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Create post</button>
+            </div>
+
         </form>
     </div>
 @endsection
