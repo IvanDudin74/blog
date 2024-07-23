@@ -10,6 +10,6 @@ class Category extends Model
 {
     use HasFactory;
     use SoftDeletes;
-    public $table = 'category';
+    public $table = 'categories';
     public $guarded = [];
 }
