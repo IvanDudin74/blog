@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers\Admin\Post;
 
-use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Category\UpdateRequest;
 use App\Models\Category;
 
-class UpdateController extends Controller
+class UpdateController extends BaseController
 {
     public function __invoke(UpdateRequest $request, Category $category) {
         $data = $request->validated();

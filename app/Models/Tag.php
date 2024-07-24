@@ -12,4 +12,7 @@ class Tag extends Model
     use SoftDeletes;
     public $table = 'tags';
     public $guarded = [];
+    public function posts() {
+        return $this->belongsToMany(Post::class);
+    }
 }
