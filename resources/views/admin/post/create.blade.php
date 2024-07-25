@@ -60,7 +60,8 @@
                 <label>Tags</label>
                 <select class="select2" name="tag_ids[]" multiple="multiple" data-placeholder="Select tags" style="width: 100%;">
                     @foreach($tags as $tag)
-                        <option {{ is_array(old('tag_ids')) && (in_array($tag->id, old('tag_ids'))) ? 'selected' : '' }} value="{{ $tag->id }}">
+                        <option {{ is_array(old('tag_ids')) && (in_array($tag->id, old('tag_ids'))) ? 'selected' : '' }}
+                                value="{{ $tag->id }}">
                             {{ $tag->title }}
                         </option>
                     @endforeach
