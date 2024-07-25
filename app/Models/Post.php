@@ -13,6 +13,6 @@ class Post extends Model
     public $table = 'posts';
     public $guarded = [];
     public function tags() {
-        return $this->belongsToMany(Tag::class);
+        return $this->belongsToMany(Tag::class, 'post_tags', 'post_id', 'tag_id');
     }
 }

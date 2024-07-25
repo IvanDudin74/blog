@@ -20,7 +20,7 @@
                 <label for="exampleInputFile">Create main image</label>
                 <div class="input-group">
                     <div class="custom-file">
-                        <input type="file" class="custom-file-input" name="main_image">
+                        <input type="file" class="custom-file-input" name="main_image" value="{{ old('main_image') }}">
                         <label class="custom-file-label">Choose image</label>
                     </div>
                     <div class="input-group-append">
@@ -35,7 +35,7 @@
                 <label for="exampleInputFile">Create preview</label>
                 <div class="input-group">
                     <div class="custom-file">
-                        <input type="file" class="custom-file-input" name="preview_image">
+                        <input type="file" class="custom-file-input" name="preview_image"  value="{{ old('preview_image') }}">
                         <label class="custom-file-label">Choose image</label>
                     </div>
                     <div class="input-group-append">
@@ -60,7 +60,7 @@
                 <label>Tags</label>
                 <select class="select2" name="tag_ids[]" multiple="multiple" data-placeholder="Select tags" style="width: 100%;">
                     @foreach($tags as $tag)
-                        <option value="{{ $tag->id }}">
+                        <option {{ is_array(old('tag_ids')) && (in_array($tag->id, old('tag_ids'))) ? 'selected' : '' }} value="{{ $tag->id }}">
                             {{ $tag->title }}
                         </option>
                     @endforeach

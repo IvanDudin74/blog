@@ -9,19 +9,19 @@ use Illuminate\Support\Facades\Storage;
 class Service
 {
     public function store($data) {
-        dd($data);
         try {
-            DB::beginTransaction();
+            //DB::beginTransaction();
             $data['main_image'] = Storage::put('/images', $data['main_image']);
             $data['preview_image'] = Storage::put('/images', $data['preview_image']);
-            $post = Post::firstOrcreate($data);
             $tag_ids = $data['tag_ids'];
             unset($data['tag_ids']);
+            $post = Post::firstOrcreate($data);
             $post->tags()->attach($tag_ids);
-            DB::commit();
+            //DB::commit();
         } catch (\Exception $exception) {
-            DB::rollBack();
-            //return $exception->getMessage();
+            //DB::rollBack();
+            //dd($exception->getMessage());
+            abort('404');
         }
     }
 }
