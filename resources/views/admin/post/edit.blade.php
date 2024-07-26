@@ -2,8 +2,9 @@
 @section('content')
     <div class="container">
         <h1>Edit post:</h1>
-        <form action="" method="post" enctype="multipart/form-data">
+        <form action="{{ route('admin.post.update', $post->id) }}" method="post" enctype="multipart/form-data">
             @csrf
+            @method('patch')
             <div class="w-25 mb-3">
                 <input type="text" class="form-control" id="title" name="title" value="{{ $post->title }}" placeholder="Enter title">
                 @error('title')
@@ -17,7 +18,7 @@
                 @enderror
             </div>
             <div class="w-25">
-                <img src="{{ asset('storage/'.$post->main_image) }}" alt="main_image">
+                <img src="{{ asset('storage/'.$post->main_image) }}" alt="main_image" class="w-75">
             </div>
             <div class="form-group w-75">
                 <label for="exampleInputFile">Update main image</label>
@@ -35,7 +36,7 @@
                 @enderror
             </div>
             <div class="w-25">
-                <img src="{{ asset('storage/'.$post->preview_image) }}" alt="preview_image">
+                <img src="{{ asset('storage/'.$post->preview_image) }}" alt="preview_image"  class="w-75">
             </div>
             <div class="form-group w-75">
                 <label for="exampleInputFile">Update preview image</label>
@@ -66,7 +67,7 @@
                 <label>Tags</label>
                 <select class="select2" name="tag_ids[]" multiple="multiple" data-placeholder="Select tags" style="width: 100%;">
                     @foreach($tags as $tag)
-                        <option {{ is_array($post->tags->pluck('id')) && (in_array($tag->id, $post->tags->pluck('id'))) ? 'selected' : '' }}
+                        <option {{ is_array($post->tags->pluck('id')->toArray()) && (in_array($tag->id, $post->tags->pluck('id')->toArray())) ? 'selected' : '' }}
                              value="{{ $tag->id }}">
                             {{ $tag->title }}
                         </option>

@@ -24,4 +24,17 @@ class Service
             abort('404');
         }
     }
+
+    public function update($data, $post) {
+        if ($data['main_image']) {
+            $data['main_image'] = Storage::disk('public')->put('/images', $data['main_image']);
+        }
+        if ($data['preview_image']) {
+            $data['preview_image'] = Storage::disk('public')->put('/images', $data['preview_image']);
+        }
+        $tag_ids = $data['tag_ids'];
+        $post->tags()->sync($tag_ids);
+        unset($data['tag_ids']);
+        $post->update($data);
+    }
 }
