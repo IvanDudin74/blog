@@ -5,9 +5,23 @@
         <form action="{{ route('admin.user.store') }}" method="post">
             @csrf
             <div class="w-25 mb-3">
-                <input type="text" class="form-control" id="name" name="name" placeholder="Enter name">
+                <input type="text" class="form-control" id="name" name="name" placeholder="Enter name" value="{{ old('name') }}">
                 @error('name')
                     <div class="text-danger">{{ $message }}</div>
+                @enderror
+            </div>
+
+            <div class="form-group w-25">
+                <label>Select role</label>
+                <select class="form-control" name="role">
+                        @foreach($roles as $id => $role)
+                        <option value="{{ $id }}"
+                                {{ ($id == old('role')) ? 'selected' :'' }}
+                        >{{ $role }}</option>
+                        @endforeach
+                </select>
+                @error('role')
+                <div class="text-danger">{{ $message }}</div>
                 @enderror
             </div>
 
@@ -19,7 +33,7 @@
             </div>
 
             <div class="w-25 mb-3">
-                <input type="password" class="form-control" id="password" name="password" placeholder="Enter password">
+                <input type="password" class="form-control" id="password" name="password" placeholder="Enter password" value="old('password')">
                 @error('password')
                 <div class="text-danger">{{ $message }}</div>
                 @enderror

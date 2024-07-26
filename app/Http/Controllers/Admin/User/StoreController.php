@@ -11,6 +11,7 @@ class StoreController extends Controller
 {
     public function __invoke(StoreRequest $request) {
         $data = $request->validated();
+        //dd($data['role']);
         $data['password'] = Hash::make($data['password']);
         User::firstOrcreate(['email' => $data['email']], $data);
         return redirect()->route('admin.user.index');
