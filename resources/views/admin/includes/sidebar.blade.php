@@ -13,6 +13,13 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href=" {{ route('admin.user.index') }}" class="nav-link">
+                        <i class="nav-icon far fa-solid fa-user"></i>
+                            Users
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href=" {{ route('admin.post.index') }}" class="nav-link">
                         <i class="nav-icon far fa-regular fa-newspaper"></i>
                         <p>

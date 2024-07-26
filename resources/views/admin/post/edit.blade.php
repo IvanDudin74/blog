@@ -11,7 +11,7 @@
                 <div class="text-danger">{{ $message }}</div>
                 @enderror
             </div>
-            <div class="form-group mb-3">
+            <div class="form-group mb-5">
                 <textarea id="summernote" name="content">{{ $post->content }}</textarea>
                 @error('content')
                 <div class="text-danger">{{ $message }}</div>
@@ -20,7 +20,7 @@
             <div class="w-25">
                 <img src="{{ asset('storage/'.$post->main_image) }}" alt="main_image" class="w-75">
             </div>
-            <div class="form-group w-75">
+            <div class="form-group w-75 mb-5">
                 <label for="exampleInputFile">Update main image</label>
                 <div class="input-group">
                     <div class="custom-file">
@@ -38,7 +38,7 @@
             <div class="w-25">
                 <img src="{{ asset('storage/'.$post->preview_image) }}" alt="preview_image"  class="w-75">
             </div>
-            <div class="form-group w-75">
+            <div class="form-group w-75 mb-5">
                 <label for="exampleInputFile">Update preview image</label>
                 <div class="input-group">
                     <div class="custom-file">
