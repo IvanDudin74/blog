@@ -10,8 +10,8 @@
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{ route('admin.main.index') }}">Main</a></li>
-                            <li class="breadcrumb-item"><a href="{{ route('admin.category.index') }}">categories</a></li>
-                            <li class="breadcrumb-item active">{{ $category->title }}</li>
+                            <li class="breadcrumb-item"><a href="{{ route('admin.category.index') }}">Categories</a></li>
+                            <li class="breadcrumb-item active">edit</li>
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->

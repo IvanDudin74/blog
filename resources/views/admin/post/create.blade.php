@@ -10,7 +10,7 @@
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{ route('admin.main.index') }}">Main</a></li>
-                            <li class="breadcrumb-item"><a href="{{ route('admin.category.index') }}">categories</a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('admin.post.index') }}">categories</a></li>
                             <li class="breadcrumb-item active">create</li>
                         </ol>
                     </div><!-- /.col -->

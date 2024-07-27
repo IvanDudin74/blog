@@ -40,6 +40,9 @@
                             <a class="dropdown-item" href="{{ asset('coming-soon.html') }}">Coming Soon</a>
                         </div>
                     </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{{ asset('admin/') }}">Admin</a>
+                    </li>
                 </ul>
                 <ul class="navbar-nav mt-2 mt-lg-0">
                     <li class="nav-item">

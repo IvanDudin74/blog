@@ -1,7 +1,22 @@
 @extends('admin.layouts.main')
 @section('content')
     <div class="container">
-        <h1>Edit post:</h1>
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1 class="m-0">Edit post</h1>
+                    </div><!-- /.col -->
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="{{ route('admin.main.index') }}">Main</a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('admin.post.index') }}">categories</a></li>
+                            <li class="breadcrumb-item active">edit</li>
+                        </ol>
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.container-fluid -->
+        </div>
         <form action="{{ route('admin.post.update', $post->id) }}" method="post" enctype="multipart/form-data">
             @csrf
             @method('patch')
