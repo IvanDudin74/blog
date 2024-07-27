@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,7 +18,7 @@ Route::group(['namespace' => 'Main'], function() {
     Route::get('/', 'IndexController');
 });
 
-Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
+Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['auth', 'admin']], function () {
     Route::group(['namespace' => 'Main'], function() {
         Route::get('/', 'IndexController')->name('admin.main.index');
     });
@@ -51,8 +52,30 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
         Route::patch('/{tag}', 'UpdateController')->name('admin.tag.update');
         Route::delete('/{tag}', 'DestroyController')->name('admin.tag.destroy');
     });
+
+    Route::group(['namespace' => 'User', 'prefix' => 'user'], function() {
+        Route::get('/', 'IndexController')->name('admin.user.index');
+        Route::get('/create', 'CreateController')->name('admin.user.create');
+        Route::get('/{user}', 'ShowController')->name('admin.user.show');
+        Route::post('/', 'StoreController')->name('admin.user.store');
+        Route::get('/{user}/edit', 'EditController')->name('admin.user.edit');
+        Route::patch('/{user}', 'UpdateController')->name('admin.user.update');
+        Route::delete('/{user}', 'DestroyController')->name('admin.user.destroy');
+    });
 });
 
-//Auth::routes();
+Route::group(['namespace' => 'Personal', 'prefix' => 'personal', 'middleware' => 'auth'], function () {
+    Route::group(['namespace' => 'Main'], function() {
+        Route::get('/', 'IndexController')->name('personal.main.index');
+    });
+    Route::group(['namespace' => 'Liked', 'prefix' => 'liked'], function() {
+        Route::get('/', 'IndexController')->name('personal.liked.index');
+    });
+    Route::group(['namespace' => 'Comment', 'prefix' => 'comment'], function() {
+        Route::get('/', 'IndexController')->name('personal.comment.index');
+    });
+});
 
-//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

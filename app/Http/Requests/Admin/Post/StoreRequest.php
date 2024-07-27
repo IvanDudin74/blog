@@ -26,7 +26,30 @@ class StoreRequest extends FormRequest
         return [
             'title' => 'required|string',
             'content' => 'required|string',
-            'category_id' => ''
+            'category_id' => 'required|integer|exists:categories,id',
+            'main_image' => 'required|file',
+            'preview_image' => 'required|file',
+            'tag_ids' => 'nullable|array',
+            'tag_ids.*' => 'nullable|integer|exists:tags,id',
+        ];
+    }
+
+    public function messages() {
+        return [
+            'title.required' => 'This item is reqired',
+            'title.string' => 'This item must be string',
+            'content.required' => 'This item is reqired',
+            'content.string' => 'file',
+            'category_id.required' => 'This item is reqired',
+            'category_id.integer' => 'This item must be integer type',
+            'category_id.exists' => 'This item must be exists in database',
+            'main_image.required' => 'This item is reqired',
+            'main_image.file' => 'This item must be file type',
+            'preview_image.required' => 'This item is reqired',
+            'preview_image.file' => 'This item must be file type',
+            'tag_ids.array' => 'This item must be array type',
+            'tag_ids.*.integer' => 'This item must be integer type',
+            'tag_ids.*.exists' => 'This item must be exists in database',
         ];
     }
 }
