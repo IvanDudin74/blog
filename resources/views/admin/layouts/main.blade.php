@@ -32,22 +32,13 @@
     </div>
 
     <!-- Navbar -->
-    <nav class="main-header navbar navbar-expand navbar-white navbar-light d-flex justify-content-between">
+    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
         <!-- Left navbar links -->
         <ul class="navbar-nav">
             <li class="nav-item">
                 <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
             </li>
         </ul>
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <form action="{{ route('logout') }}" method="post">
-                    @csrf
-                    <input type="submit" class="btn btn-outline-primary" value="Logout">
-                </form>
-            </li>
-        </ul>
-
         <!-- Right navbar links -->
         <ul class="navbar-nav ml-auto">
             <!-- Navbar Search -->
@@ -71,7 +62,6 @@
                     </form>
                 </div>
             </li>
-
             <!-- Messages Dropdown Menu -->
             <li class="nav-item dropdown">
                 <a class="nav-link" data-toggle="dropdown" href="#">
@@ -167,6 +157,14 @@
                     <i class="fas fa-th-large"></i>
                 </a>
             </li>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <form action="{{ route('logout') }}" method="post">
+                        @csrf
+                        <input type="submit" class="btn btn-outline-primary" value="Logout">
+                    </form>
+                </li>
+            </ul>
         </ul>
     </nav>
     <!-- /.navbar -->
@@ -174,6 +172,9 @@
     @include('admin.includes.sidebar')
 
     <div class="content-wrapper" style="min-height: 496px;">
+        <div class="mb-3">
+            You entered as {{ auth()->user()->name }}
+        </div>
         @yield('content')
     </div>
 

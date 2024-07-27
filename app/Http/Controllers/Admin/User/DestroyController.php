@@ -8,7 +8,7 @@ use App\Models\User;
 class DestroyController extends Controller
 {
     public function __invoke(User $user) {
-        $user->delete();
+        $user->forceDelete();
         return redirect()->route('admin.user.index');
     }
 }

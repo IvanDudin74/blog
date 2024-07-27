@@ -8,7 +8,7 @@
                     <a href=" {{ route('admin.main.index') }}" class="nav-link">
                         <i class="nav-icon far fa-solid fa-building"></i>
                         <p>
-                            Home
+                            Main
                         </p>
                     </a>
                 </li>

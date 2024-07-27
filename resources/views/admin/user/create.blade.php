@@ -32,12 +32,6 @@
                 @enderror
             </div>
 
-            <div class="w-25 mb-3">
-                <input type="password" class="form-control" id="password" name="password" placeholder="Enter password" value="old('password')">
-                @error('password')
-                <div class="text-danger">{{ $message }}</div>
-                @enderror
-            </div>
             <button type="submit" class="btn btn-primary">Create</button>
         </form>
     </div>

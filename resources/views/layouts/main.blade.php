@@ -48,6 +48,14 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#">Download</a>
                     </li>
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <form action="{{ route('logout') }}" method="post">
+                                @csrf
+                                <input type="submit" class="btn btn-outline-primary" value="Logout">
+                            </form>
+                        </li>
+                    </ul>
                 </ul>
             </div>
         </nav>
