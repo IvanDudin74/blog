@@ -40,20 +40,25 @@
                             <a class="dropdown-item" href="{{ asset('coming-soon.html') }}">Coming Soon</a>
                         </div>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('admin.category.index') }}">Categories</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('admin.tag.index') }}">Tags</a>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{{ asset('admin/') }}">Admin</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav mt-2 mt-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ asset('#') }}"><span class="flag-icon flag-icon-squared rounded-circle flag-icon-gb"></span> Eng</a>
+                        <a class="nav-link" href="#"><span class="flag-icon flag-icon-squared rounded-circle flag-icon-gb"></span> Eng</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ asset('#') }}">Download</a>
+                        <a class="nav-link" href="#">Download</a>
                     </li>
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <form action="{{ route('logout') }}" method="post">
+                                @csrf
+                                <input type="submit" class="btn btn-outline-primary" value="Logout">
+                            </form>
+                        </li>
+                    </ul>
                 </ul>
             </div>
         </nav>
@@ -84,30 +89,30 @@
                 <p class="contact-details">hello@edica.com</p>
                 <p class="contact-details">+23 3000 000 00</p>
                 <nav class="footer-social-links">
-                    <a href="{{ asset('#!') }}"><i class="fab fa-facebook-f"></i></a>
-                    <a href="{{ asset('#!') }}"><i class="fab fa-twitter"></i></a>
-                    <a href="{{ asset('#!') }}"><i class="fab fa-behance"></i></a>
-                    <a href="{{ asset('#!') }}"><i class="fab fa-dribbble"></i></a>
+                    <a href="#!"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#!"><i class="fab fa-twitter"></i></a>
+                    <a href="#!"><i class="fab fa-behance"></i></a>
+                    <a href="#!"><i class="fab fa-dribbble"></i></a>
                 </nav>
             </div>
             <div class="col-md-3">
                 <nav class="footer-nav">
-                    <a href="{{ asset('#!') }}" class="nav-link">Company</a>
-                    <a href="{{ asset('#!') }}" class="nav-link">Android App</a>
-                    <a href="{{ asset('#!') }}" class="nav-link">ios App</a>
-                    <a href="{{ asset('#!') }}" class="nav-link">Blog</a>
-                    <a href="{{ asset('#!') }}" class="nav-link">Partners</a>
-                    <a href="{{ asset('#!') }}" class="nav-link">Careers</a>
+                    <a href="#!" class="nav-link">Company</a>
+                    <a href="#!" class="nav-link">Android App</a>
+                    <a href="#!" class="nav-link">ios App</a>
+                    <a href="#!" class="nav-link">Blog</a>
+                    <a href="#!" class="nav-link">Partners</a>
+                    <a href="#!" class="nav-link">Careers</a>
                 </nav>
             </div>
             <div class="col-md-3">
                 <nav class="footer-nav">
-                    <a href="{{ asset('#!') }}" class="nav-link">FAQ</a>
-                    <a href="{{ asset('#!') }}" class="nav-link">Reporting</a>
-                    <a href="{{ asset('#!') }}" class="nav-link">Block Storage</a>
-                    <a href="{{ asset('#!') }}" class="nav-link">Tools & Integrations</a>
-                    <a href="{{ asset('#!') }}" class="nav-link">API</a>
-                    <a href="{{ asset('#!') }}" class="nav-link">Pricing</a>
+                    <a href="#!'" class="nav-link">FAQ</a>
+                    <a href="#!" class="nav-link">Reporting</a>
+                    <a href="#!" class="nav-link">Block Storage</a>
+                    <a href="#!" class="nav-link">Tools & Integrations</a>
+                    <a href="#!" class="nav-link">API</a>
+                    <a href="#!" class="nav-link">Pricing</a>
                 </nav>
             </div>
             <div class="col-md-3">
@@ -116,10 +121,10 @@
                         <span class="flag-icon flag-icon-gb flag-icon-squared"></span> United Kingdom <i class="fas fa-chevron-down ml-2"></i>
                     </button>
                     <div class="dropdown-menu" aria-labelledby="footerCountryDropdown">
-                        <button class="dropdown-item" href="{{ asset('#') }}">
+                        <button class="dropdown-item" href="#">
                             <span class="flag-icon flag-icon-us flag-icon-squared"></span> United States
                         </button>
-                        <button class="dropdown-item" href="{{ asset('#') }}">
+                        <button class="dropdown-item" href="#">
                             <span class="flag-icon flag-icon-au flag-icon-squared"></span> Australia
                         </button>
                     </div>
@@ -128,23 +133,26 @@
         </div>
         <div class="footer-bottom-content">
             <nav class="nav footer-bottom-nav">
-                <a href="{{ asset('#!') }}">Privacy & Policy</a>
-                <a href="{{ asset('#!') }}">Terms</a>
-                <a href="{{ asset('#!') }}">Site Map</a>
+                <a href="#!">Privacy & Policy</a>
+                <a href="#!">Terms</a>
+                <a href="#!">Site Map</a>
             </nav>
             <p class="mb-0">© Edica. 2020 <a href="{{ asset('https://www.bootstrapdash.com') }}" target="_blank" rel="noopener noreferrer" class="text-reset">bootstrapdash</a> . All rights reserved.</p>
         </div>
     </div>
 </footer>
+
 <script src="{{ asset('assets/vendors/popper.js/popper.min.js') }}"></script>
 <script src="{{ asset('assets/vendors/bootstrap/dist/js/bootstrap.min.js') }}"></script>
 <script src="{{ asset('assets/vendors/aos/aos.js') }}"></script>
 <script src="{{ asset('assets/js/main.js') }}"></script>
+
 <script>
     AOS.init({
         duration: 1000
     });
 </script>
+
 </body>
 
 </html>
