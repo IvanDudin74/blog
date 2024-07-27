@@ -37,10 +37,10 @@
                                 <td>{{ $post->title }}</td>
                                 <td><a href="">Show</a></td>
                                 <td>
-                                    <form class="mb-3" action="" method="post">
+                                    <form class="mb-3" action="{{ route('personal.liked.destroy', $post->id) }}" method="post">
                                         @csrf
                                         @method('delete')
-                                        <button type="submit" class="btn btn-primary">Delete</button>
+                                        <button type="submit" class="btn btn-primary">Delete from list</button>
                                     </form>
                                 </td>
                             </tr>
