@@ -25,7 +25,7 @@
                         <!-- small box -->
                         <div class="small-box bg-success">
                             <div class="inner">
-                                <h3>10</h3>
+                                <h3>{{ $data['likedPostsCount'] }}</h3>
 
                                 <p>Liked posts</p>
                             </div>

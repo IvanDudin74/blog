@@ -27,7 +27,7 @@
                         <tr>
                             <th>ID</th>
                             <th>Title</th>
-                            <th>Actions</th>
+                            <th colspan="2">Actions</th>
                         </tr>
                         </thead>
                         <tbody>
