@@ -25,6 +25,7 @@ class StoreRequest extends FormRequest
     {
         return [
             'message' => 'required|string',
+            'post_id' => 'required|integer',
         ];
     }
 
@@ -32,6 +33,8 @@ class StoreRequest extends FormRequest
         return [
             'message.required' => 'This item is reqired',
             'message.string' => 'This item must be string',
+            'post_id.required' => 'This item is reqired',
+            'post_id.string' => 'This item must be string',
         ];
     }
 }

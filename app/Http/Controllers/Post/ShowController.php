@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Post;
 
 use App\Http\Controllers\Controller;
+use App\Models\Comment;
 use App\Models\Post;
 use Carbon\Carbon;
 
@@ -14,6 +15,8 @@ class ShowController extends Controller
             ->where('id', '!=', $post->id)
             ->get()
             ->take(3);
-        return view('post.show', compact('post', 'date', 'relatedPosts'));
+        $comments = $post->comments;
+        //dd($comments);
+        return view('post.show', compact('post', 'date', 'relatedPosts', 'comments'));
     }
 }
