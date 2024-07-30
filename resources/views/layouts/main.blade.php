@@ -26,12 +26,22 @@
                     <li class="nav-item active">
                         <a class="nav-link" href="{{ route('main.index') }}">Blog <span class="sr-only">(current)</span></a>
                     </li>
+                    @auth
                     <li class="nav-item active">
-                        <a class="nav-link" href="{{ asset('admin/') }}">Admin</a>
+                        <a class="nav-link" href="{{ route('personal.main.index') }}">Account <span class="sr-only">(current)</span></a>
+                    </li>
+                    @endauth
+                    @guest
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{{ route('personal.main.index') }}">Login <span class="sr-only">(current)</span></a>
+                    </li>
+                    @endguest
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{{ route('admin.main.index') }}">Admin</a>
                     </li>
                 </ul>
+                @auth
                 <ul class="navbar-nav mt-2 mt-lg-0">
-
                     <ul class="navbar-nav">
                         <li class="nav-item">
                             <form action="{{ route('logout') }}" method="post">
@@ -41,6 +51,7 @@
                         </li>
                     </ul>
                 </ul>
+                @endauth
             </div>
         </nav>
     </div>

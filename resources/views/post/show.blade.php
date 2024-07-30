@@ -36,18 +36,23 @@
                             @endforeach
                         </div>
                     </section>
-                    <h2 class="section-title mb-5" data-aos="fade-up">Comments:</h2>
+                    <h2 class="section-title mb-5" data-aos="fade-up">Comments: ({{ $post->comments->count() }})</h2>
                     <section class="comment-list">
                         @foreach($comments as $comment)
-                        <div class="comment-text">
-                            <div class="username">
+                        <div class="comment-text mb-3">
+                            <span class="username">
                               {{ $comment->user->name }}
-                            </div>
-                            {{ $comment->message }}
+                                <span class="text-muted float-right">
+                                    {{ $comment->dateAsCarbon->diffForHumans() }}
+                                </span>
+                                <div>
+                                    {{ $comment->message }}
+                                </div>
+                            </span>
                         </div>
-                            @dd($comment->dateAsCarbon)
                         @endforeach
                     </section>
+                    @auth
                     <section class="comment-section">
                         <h2 class="section-title mb-5" data-aos="fade-up">Leave a comment</h2>
                         <form action="{{ route('post.comment.store', $post->id) }}" method="post">
@@ -65,6 +70,7 @@
                             </div>
                         </form>
                     </section>
+                    @endauth
                 </div>
             </div>
         </div>
