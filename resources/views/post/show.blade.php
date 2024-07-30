@@ -36,22 +36,21 @@
                             @endforeach
                         </div>
                     </section>
-                    <section class="comment-section">
-                        <h2 class="section-title mb-5" data-aos="fade-up">Comments:</h2>
+                    <h2 class="section-title mb-5" data-aos="fade-up">Comments:</h2>
+                    <section class="comment-list">
                         @foreach($comments as $comment)
-                            <div class="row">
-                                <h4 class="form-group col-12" data-aos="fade-up">
-                                    {{ $comment->user->name }}:
-                                </h4>
-                                <div class="form-group col-12" data-aos="fade-up">
-                                    {{ $comment->message }}
-                                </div>
+                        <div class="comment-text">
+                            <div class="username">
+                              {{ $comment->user->name }}
                             </div>
+                            {{ $comment->message }}
+                        </div>
+                            @dd($comment->dateAsCarbon)
                         @endforeach
                     </section>
                     <section class="comment-section">
                         <h2 class="section-title mb-5" data-aos="fade-up">Leave a comment</h2>
-                        <form action="{{ route('personal.comment.store') }}" method="post">
+                        <form action="{{ route('post.comment.store', $post->id) }}" method="post">
                             @csrf
                             <div class="row">
                                 <div class="form-group col-12" data-aos="fade-up">
@@ -59,7 +58,6 @@
                                     <textarea name="message" id="message" class="form-control" placeholder="Enter comment" rows="10"></textarea>
                                 </div>
                             </div>
-                            <input name="post_id" type="hidden" value="{{ $post->id }}">
                             <div class="row">
                                 <div class="col-12" data-aos="fade-up">
                                     <input type="submit" value="Send Message" class="btn btn-warning">
