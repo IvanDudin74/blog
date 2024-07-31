@@ -13,6 +13,7 @@ class Comment extends Model
     use SoftDeletes;
     public $table = 'comments';
     public $guarded = [];
+    protected $with = ['post'];
 
     public function user(){
         return $this->belongsTo(User::class, 'user_id', 'id');

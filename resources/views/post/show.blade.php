@@ -36,13 +36,12 @@
                                     @else
                                         <i class="nav-icon far fa-solid fa-star"></i>
                                     @endif
-                                    <span>{{ $post->likedUsers->count() > 0 ? $post->likedUsers->count() : ''}}</span>
+                                    <span>{{ $post->liked_users_count > 0 ? $post->liked_users_count : ''}}</span>
                                 </button>
                             </form>
                         @endauth
                         @guest
-                            <i class="nav-icon far fa-solid fa-star"></i>
-                            <span>{{ $post->likedUsers->count() > 0 ? $post->likedUsers->count() : ''}}</span>
+                            <i class="nav-icon far fa-solid fa-star"></i><span>{{ $post->liked_users_count > 0 ? $post->liked_users_count : ''}}</span>
                         @endguest
                     </section>
                     <section class="related-posts">

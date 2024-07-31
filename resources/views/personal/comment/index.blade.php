@@ -32,7 +32,9 @@
                         </tr>
                         </thead>
                         <tbody>
+
                         @foreach($comments as $comment)
+                            @dd($comment->post->title)
                             <tr>
                                 <td>{{ $comment->id }}</td>
                                 <td>{{ mb_substr($comment->post->title, 0, 20) }}</td>
