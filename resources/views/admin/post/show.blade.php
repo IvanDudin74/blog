@@ -27,6 +27,38 @@
                         <td>Title</td>
                         <td>{{ $post->title }}</td>
                     </tr>
+                    <tr>
+                        <td>Content</td>
+                        <td>{!! $post->content !!}</td>
+                    </tr>
+                    <tr>
+                        <td>Preview_image</td>
+                        <td>
+                            <div>
+                                <img src="{{ asset('storage/'.$post->preview_image) }}" alt="blog post">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Main_image</td>
+                        <td>
+                            <div>
+                                <img src="{{ asset('storage/'.$post->main_image) }}" alt="blog post">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Category</td>
+                        <td>{{ $post->category->title }}</td>
+                    </tr>
+                    <tr>
+                        <td>Tags</td>
+                        <td>
+                            @foreach($post->tags as $tag)
+                                #{{ $tag->title }}
+                            @endforeach
+                        </td>
+                    </tr>
                 </tbody>
             </table>
         </div>

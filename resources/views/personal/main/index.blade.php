@@ -9,7 +9,7 @@
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item active"><a href="#">Main</a></li>
+                            <li class="breadcrumb-item active">Main</li>
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
@@ -25,12 +25,11 @@
                         <!-- small box -->
                         <div class="small-box bg-success">
                             <div class="inner">
-                                <h3>10</h3>
-
+                                <h3>{{ $data['likedPostsCount'] }}</h3>
                                 <p>Liked posts</p>
                             </div>
                             <div class="icon">
-                                <i class="nav-icon far fa-regular fa-star"></i>
+                                <i class="nav-icon fas fa-regular fa-star"></i>
                             </div>
                             <a href="{{ route('personal.liked.index') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                         </div>
@@ -41,7 +40,6 @@
                         <div class="small-box bg-warning">
                             <div class="inner">
                                 <h3>9</h3>
-
                                 <p>Comments</p>
                             </div>
                             <div class="icon">
