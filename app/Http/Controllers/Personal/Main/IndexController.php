@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 class IndexController extends Controller
 {
     public function __invoke() {
-        return view('personal.main.index');
+        $data = [];
+        $data['likedPostsCount'] = auth()->user()->likedPosts->count();
+        return view('personal.main.index', compact('data'));
     }
 }

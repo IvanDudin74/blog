@@ -21,7 +21,7 @@
                 <a class="btn btn-primary" href="{{ route('admin.post.create') }}">Create new post</a>
             </div>
 
-            <div class="col-7">
+            <div class="col-12">
                 <div class="card">
                     <!-- /.card-header -->
                     <div class="card-body table-responsive p-0">

@@ -15,7 +15,16 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::group(['namespace' => 'Main'], function() {
-    Route::get('/', 'IndexController');
+    Route::get('/', 'IndexController')->name('main.index');
+});
+
+Route::group(['namespace' => 'Post', 'prefix' => 'post'], function() {
+    Route::get('/', 'IndexController')->name('post.index');
+    Route::get('/{post}', 'ShowController')->name('post.show');
+    Route::group(['namespace' => 'Comment', 'prefix' => '{post}/comments'], function() {
+        Route::post('/', 'StoreController')->name('post.comment.store');    });
+    Route::group(['namespace' => 'Liked', 'prefix' => '{post}/liked'], function() {
+        Route::post('/', 'StoreController')->name('post.liked.store');    });
 });
 
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['auth', 'admin']], function () {
@@ -70,9 +79,13 @@ Route::group(['namespace' => 'Personal', 'prefix' => 'personal', 'middleware' =>
     });
     Route::group(['namespace' => 'Liked', 'prefix' => 'liked'], function() {
         Route::get('/', 'IndexController')->name('personal.liked.index');
+        Route::delete('/{post}', 'DestroyController')->name('personal.liked.destroy');
     });
     Route::group(['namespace' => 'Comment', 'prefix' => 'comment'], function() {
         Route::get('/', 'IndexController')->name('personal.comment.index');
+        Route::get('/{comment}/edit', 'EditController')->name('personal.comment.edit');
+        Route::patch('/{comment}', 'UpdateController')->name('personal.comment.update');
+        Route::delete('/{comment}', 'DestroyController')->name('personal.comment.destroy');
     });
 });
 

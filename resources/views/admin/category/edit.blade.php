@@ -17,7 +17,7 @@
                 </div><!-- /.row -->
             </div><!-- /.container-fluid -->
         </div>
-        <form class="mb-3" action="{{ route('admin.category.update', $category->id) }}" method="post">
+        <form class="mb-3 w-25" action="{{ route('admin.category.update', $category->id) }}" method="post">
             @csrf
             @method('patch')
             <div class="mb-3">
