@@ -9,7 +9,7 @@
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item active"><a href="#">Main</a></li>
+                            <li class="breadcrumb-item active">Main</li>
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
