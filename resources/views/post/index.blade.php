@@ -35,7 +35,6 @@
                         @guest
                             <i class="nav-icon far fa-solid fa-star"></i>
                             <span>{{ $post->likedUsers->count() > 0 ? $post->likedUsers->count() : ''}}</span>
-
                         @endguest
                     </div>
                     @endforeach
