@@ -26,11 +26,10 @@
                         <div class="small-box bg-success">
                             <div class="inner">
                                 <h3>{{ $data['likedPostsCount'] }}</h3>
-
                                 <p>Liked posts</p>
                             </div>
                             <div class="icon">
-                                <i class="nav-icon far fa-regular fa-star"></i>
+                                <i class="nav-icon fas fa-regular fa-star"></i>
                             </div>
                             <a href="{{ route('personal.liked.index') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                         </div>
@@ -41,7 +40,6 @@
                         <div class="small-box bg-warning">
                             <div class="inner">
                                 <h3>9</h3>
-
                                 <p>Comments</p>
                             </div>
                             <div class="icon">

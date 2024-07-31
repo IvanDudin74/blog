@@ -1,6 +1,11 @@
 @extends('layouts.main')
 @section('content')
     <main class="blog">
+        <div class="fa-align-right">
+            <ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item active">Main</li>
+            </ol>
+        </div><!-- /.col -->
         <div class="container">
             <h1 class="edica-page-title" data-aos="fade-up">Blog</h1>
             <section class="featured-posts-section">
@@ -14,6 +19,24 @@
                         <a href="{{ route('post.show', $post->id) }}" class="blog-post-permalink">
                             <h6 class="blog-post-title">{{ $post->title }}</h6>
                         </a>
+                        @auth
+                        <form action="{{ route('post.liked.store', $post->id) }}" method="post">
+                            @csrf
+                            <button type="submit" class="border-0 bg-transparent">
+                                @if(auth()->user()->likedPosts->contains($post))
+                                    <i class="nav-icon fas fa-solid fa-star"></i>
+                                @else
+                                    <i class="nav-icon far fa-solid fa-star"></i>
+                                @endif
+                                    <span>{{ $post->likedUsers->count() > 0 ? $post->likedUsers->count() : ''}}</span>
+                            </button>
+                        </form>
+                        @endauth
+                        @guest
+                            <i class="nav-icon far fa-solid fa-star"></i>
+                            <span>{{ $post->likedUsers->count() > 0 ? $post->likedUsers->count() : ''}}</span>
+
+                        @endguest
                     </div>
                     @endforeach
                 </div>

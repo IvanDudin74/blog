@@ -23,6 +23,8 @@ Route::group(['namespace' => 'Post', 'prefix' => 'post'], function() {
     Route::get('/{post}', 'ShowController')->name('post.show');
     Route::group(['namespace' => 'Comment', 'prefix' => '{post}/comments'], function() {
         Route::post('/', 'StoreController')->name('post.comment.store');    });
+    Route::group(['namespace' => 'Liked', 'prefix' => '{post}/liked'], function() {
+        Route::post('/', 'StoreController')->name('post.liked.store');    });
 });
 
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['auth', 'admin']], function () {

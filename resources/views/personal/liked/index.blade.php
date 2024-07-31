@@ -18,7 +18,7 @@
         </div>
         <!-- /.content-header -->
         <!-- Main content -->
-        <div class="col-7">
+        <div class="col-12">
             <div class="card">
                 <!-- /.card-header -->
                 <div class="card-body table-responsive p-0">
@@ -35,7 +35,6 @@
                             <tr>
                                 <td>{{ $post->id }}</td>
                                 <td>{{ $post->title }}</td>
-                                <td><a href="">Show</a></td>
                                 <td>
                                     <form class="mb-3" action="{{ route('personal.liked.destroy', $post->id) }}" method="post">
                                         @csrf
