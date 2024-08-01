@@ -1,3 +1,3 @@
 @component('mail::message')
-Your password {{ $password }}
+Your password: {{ $password }}
 @endcomponent

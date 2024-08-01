@@ -17,7 +17,7 @@ class StoreController extends Controller
         $password = Str::random(10);
         $data['password'] = Hash::make($password);
         User::firstOrcreate(['email' => $data['email']], $data);
-        //Mail::to($data['email'])->send(new PasswordMail($password));
-        return view('admin.user.password', compact('password'));
+        Mail::to($data['email'])->send(new PasswordMail($password));
+        return redirect()->route('admin.user.index');
     }
 }
