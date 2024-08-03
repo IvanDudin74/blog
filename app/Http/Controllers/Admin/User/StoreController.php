@@ -14,9 +14,11 @@ class StoreController extends Controller
 {
     public function __invoke(StoreRequest $request) {
         $data = $request->validated();
+
         $password = Str::random(10);
         $data['password'] = Hash::make($password);
         $user = User::firstOrcreate(['email' => $data['email']], $data);
+
         Mail::to($data['email'])->send(new PasswordMail($password));
         event(new Registred($user));
         return redirect()->route('admin.user.index');
