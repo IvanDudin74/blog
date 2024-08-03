@@ -8,6 +8,24 @@
         </div><!-- /.col -->
         <div class="container">
             <h1 class="edica-page-title" data-aos="fade-up">Blog</h1>
+            <div class="row mb-5">
+            Categories:
+                <form action="{{ route('post.index') }}" method="get">
+                    @csrf
+                    @method('get')
+                    <select name="category_id">
+                        <option value="">All</option>
+                        @foreach($categories as $category)
+                        <option value="{{ $category->id }}"
+                                {{ ($category->id == $_GET['category_id']) ? 'selected' : '' }}
+                        >
+                            {{ $category->title }}
+                        </option>
+                        @endforeach
+                        <input type="submit" value="search">
+                    </select>
+                </form>
+            </div>
             <section class="featured-posts-section">
                 <div class="row mb-3">
                     @foreach($posts as $post)
@@ -40,9 +58,12 @@
                     @endforeach
                 </div>
             </section>
+            <div class="row align-center mb-5">
+                {{ ($posts->count() == 0) ? 'No posts' : ''}}
+            </div>
             <div class="row mb-5">
                 <div class="mx-auto">
-                    {{ $posts->links() }}
+
                 </div>
             </div>
             <div class="row">

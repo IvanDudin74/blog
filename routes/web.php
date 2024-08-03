@@ -27,7 +27,7 @@ Route::group(['namespace' => 'Post', 'prefix' => 'post'], function() {
         Route::post('/', 'StoreController')->name('post.liked.store');    });
 });
 
-Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['auth', 'admin']], function () {
+Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['auth', 'admin', 'verified']], function () {
     Route::group(['namespace' => 'Main'], function() {
         Route::get('/', 'IndexController')->name('admin.main.index');
     });
@@ -73,7 +73,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['aut
     });
 });
 
-Route::group(['namespace' => 'Personal', 'prefix' => 'personal', 'middleware' => 'auth'], function () {
+Route::group(['namespace' => 'Personal', 'prefix' => 'personal', 'middleware' => ['auth', 'verified']], function () {
     Route::group(['namespace' => 'Main'], function() {
         Route::get('/', 'IndexController')->name('personal.main.index');
     });
@@ -89,6 +89,6 @@ Route::group(['namespace' => 'Personal', 'prefix' => 'personal', 'middleware' =>
     });
 });
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

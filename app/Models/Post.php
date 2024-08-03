@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Tratits\Filterable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -10,6 +11,7 @@ class Post extends Model
 {
     use HasFactory;
     use SoftDeletes;
+    use Filterable;
     public $table = 'posts';
     public $guarded = [];
     protected $withCount = ['likedUsers'];
