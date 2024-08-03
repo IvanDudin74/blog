@@ -34,29 +34,37 @@ return [
     |
     */
 
-    /*'mailers' => [
+    'mailers' => [
         'smtp' => [
             'transport' => 'smtp',
-            'host' => env('MAIL_HOST', 'smtp.mailgun.org'),
-            'port' => env('MAIL_PORT', 587),
+            'host' => env('MAIL_HOST', 'app.debugmail.io'),
+            'port' => env('MAIL_PORT', 25),
             'encryption' => env('MAIL_ENCRYPTION', 'tls'),
             'username' => env('MAIL_USERNAME'),
             'password' => env('MAIL_PASSWORD'),
             'timeout' => null,
             'auth_mode' => null,
+        ],
+
+    /*'mailers' => [
+        'smtp' => [
+              "driver" => "smtp",
+              "host" => "app.debugmail.io",
+              "port" => "25",
+              "from" => array(
+                  "address" => "john.doe@example.org",
+                  "name" => "John Doe"
+              ),
+              "encryption" => "tls",
+              "username" => "743802f0-6788-41cc-b060-1d678b9d6513",
+              "password" => "82a5eb17-f4aa-4c50-b820-c0697af6933b",
+              "sendmail" => "/usr/sbin/sendmail -bs",
+              "pretend" => false
+
         ],*/
 
-    'mailers' => [
-        'smtp' => [
-            'transport' => 'smtp',
-            'host' => env('MAIL_HOST', 'smtp.yandex.ru'),
-            'port' => env('MAIL_PORT', 465),
-            'encryption' => env('MAIL_ENCRYPTION', 'ssl'),
-            'username' => env('MAIL_USERNAME'),
-            'password' => env('MAIL_PASSWORD'),
-            'timeout' => null,
-            'auth_mode' => null,
-        ],
+
+
 
 
 
@@ -74,7 +82,7 @@ return [
 
         'sendmail' => [
             'transport' => 'sendmail',
-            'path' => env('MAIL_SENDMAIL_PATH', '/usr/sbin/sendmail -t -i'),
+            'path' => env('MAIL_SENDMAIL_PATH', '/usr/sbin/sendmail -bs'),
         ],
 
         'log' => [
@@ -107,8 +115,8 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
-        'name' => env('MAIL_FROM_NAME', 'Example'),
+        'address' => env('MAIL_FROM_ADDRESS', 'john.doe@example.org'),
+        'name' => env('MAIL_FROM_NAME', 'John Doe'),
     ],
 
     /*

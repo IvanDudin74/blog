@@ -16,7 +16,6 @@ class ShowController extends Controller
             ->get()
             ->take(3);
         $comments = $post->comments;
-        //dd($comments);
         return view('post.show', compact('post', 'date', 'relatedPosts', 'comments'));
     }
 }

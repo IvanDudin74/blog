@@ -14,10 +14,13 @@ class StoreController extends Controller
 {
     public function __invoke(StoreRequest $request) {
         $data = $request->validated();
+
         $password = Str::random(10);
         $data['password'] = Hash::make($password);
-        User::firstOrcreate(['email' => $data['email']], $data);
-        //Mail::to($data['email'])->send(new PasswordMail($password));
-        return view('admin.user.password', compact('password'));
+        $user = User::firstOrcreate(['email' => $data['email']], $data);
+
+        Mail::to($data['email'])->send(new PasswordMail($password));
+        event(new Registred($user));
+        return redirect()->route('admin.user.index');
     }
 }
